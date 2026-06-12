@@ -28,5 +28,14 @@ services:
     environment:
       - DATABASE_URL=${DATABASE_URL}
 
+  frontend:
+    build: ./frontend
+    container_name: inventory_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
 volumes:
   postgres_data:
